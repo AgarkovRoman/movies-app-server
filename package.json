@@ -2,9 +2,10 @@
   "name": "movies",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/app.js",
   "scripts": {
-    "dev": "nodemon server/app.js"
+    "start": "node server/app.js",
+    "serve": "node server/app.js"
   },
   "author": "",
   "license": "ISC",
