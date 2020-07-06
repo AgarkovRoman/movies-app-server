@@ -1,9 +1,11 @@
 {
-  "name": "movies",
+  "name": "movies-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "serve": "node server/app.js",
+    "start": "node server/app.js",
     "dev": "nodemon server/app.js"
   },
   "author": "",
