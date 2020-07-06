@@ -2,7 +2,7 @@
   "name": "movies-app",
   "version": "1.0.0",
   "description": "",
-  "main": "./server/index.js",
+  "main": "./server/app.js",
   "scripts": {
     "serve": "node server/app.js",
     "start": "node server/app.js"

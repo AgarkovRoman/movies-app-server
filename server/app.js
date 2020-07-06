@@ -5,12 +5,12 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const app = express();
-const PORT = 'https://movie-app-react-graphql-server.herokuapp.com/'; ~
+const PORT = process.env.PORT || 'https://movie-app-react-graphql-server.herokuapp.com/';
 
-  mongoose.connect(`mongodb+srv://TestUser:pass123@cluster0-q1pic.mongodb.net/graph-ql-app?retryWrites=true&w=majority`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
+mongoose.connect(`mongodb+srv://TestUser:pass123@cluster0-q1pic.mongodb.net/graph-ql-app?retryWrites=true&w=majority`, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
 
 app.use(cors());
 
@@ -18,6 +18,14 @@ app.use('/graphql', graphqlHTTP({
   schema,
   graphiql: true,
 }));
+
+app.use(express.static('../public'));
+
+app.get('*', (req, res) => {
+
+  res.sendFile(path.resolve(__dirname, '../public', 'index.html'));
+
+});
 
 const dbConnection = mongoose.connection;
 dbConnection.on('error', err => console.log(`Connection error: ${err}`));
